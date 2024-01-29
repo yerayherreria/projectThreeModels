@@ -1,0 +1,638 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "ProjectThreeModelv2",
+    "dateExported": "2023-11-19T10:03:07.607Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "Song ",
+            "containerId": "",
+            "created": "2023-11-19T09:49:14.780Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "32e328dd-3180-4aae-aaf9-be387b956278",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "deleteSong",
+            "url": "/song/1",
+            "method": "DELETE",
+            "sortNum": 250000,
+            "created": "2023-11-19T09:49:14.783Z",
+            "modified": "2023-11-19T09:49:14.783Z",
+            "headers": [],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "204"
+                }
+            ]
+        },
+        {
+            "_id": "f3ce812d-c7a0-47bc-ab8f-bcbd04f31824",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "deleteSongNoId",
+            "url": "/song",
+            "method": "DELETE",
+            "sortNum": 260000,
+            "created": "2023-11-19T09:49:14.783Z",
+            "modified": "2023-11-19T09:49:14.783Z",
+            "headers": [],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "204"
+                }
+            ]
+        },
+        {
+            "_id": "85d16301-5e38-4fb4-a298-082af501bf2c",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "viewSongContent",
+            "url": "/song",
+            "method": "GET",
+            "sortNum": 260000,
+            "created": "2023-11-19T09:49:14.783Z",
+            "modified": "2023-11-19T09:49:14.783Z",
+            "headers": [],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                }
+            ]
+        },
+        {
+            "_id": "4bcf3032-37c1-4fc5-b56c-a4f73414e54c",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "addSong",
+            "url": "/song",
+            "method": "POST",
+            "sortNum": 270000,
+            "created": "2023-11-19T09:49:14.783Z",
+            "modified": "2023-11-19T09:50:34.279Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paraiso\",\n  \"duration\": 3,\n  \"category\": \"Rock\",\n  \"nameArtist\": \"myke\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "1b7deec4-afa0-472a-8b0e-4980035c2448",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "editSong",
+            "url": "/song/1",
+            "method": "PUT",
+            "sortNum": 270039.1,
+            "created": "2023-11-19T09:58:07.634Z",
+            "modified": "2023-11-19T09:58:43.890Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paraiso\",\n  \"duration\": 3,\n  \"category\": \"Rock\",\n  \"nameArtist\": \"myke\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "b68d3d13-b585-416f-bf5d-fbc1c721120b",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "addSongNameArtistInteger",
+            "url": "/song",
+            "method": "POST",
+            "sortNum": 270078.2,
+            "created": "2023-11-19T09:55:25.789Z",
+            "modified": "2023-11-19T09:56:41.296Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paraiso\",\n  \"duration\": 3,\n  \"category\": \"Rock\",\n  \"nameArtist\": 1\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "e485d9d3-bb09-4c16-b42a-ddc9d6a3d958",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "editSongNameArtistInteger",
+            "url": "/song/1",
+            "method": "PUT",
+            "sortNum": 270117.3,
+            "created": "2023-11-19T09:58:49.504Z",
+            "modified": "2023-11-19T09:59:08.400Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paraiso\",\n  \"duration\": 3,\n  \"category\": \"Rock\",\n  \"nameArtist\": 1\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "6f0dc5ba-3fb3-4840-b4c4-d31b1007cfd0",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "addSongCategoryInteger",
+            "url": "/song",
+            "method": "POST",
+            "sortNum": 270156.3,
+            "created": "2023-11-19T09:55:01.003Z",
+            "modified": "2023-11-19T09:55:21.720Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paraiso\",\n  \"duration\": 3,\n  \"category\": 1,\n  \"nameArtist\": \"myke\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "c0c66098-76b3-44eb-b824-b7efb3edfc59",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "editSongCategoryInteger",
+            "url": "/song/1",
+            "method": "PUT",
+            "sortNum": 270234.4,
+            "created": "2023-11-19T09:59:15.819Z",
+            "modified": "2023-11-19T09:59:38.030Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paraiso\",\n  \"duration\": 3,\n  \"category\": 1,\n  \"nameArtist\": \"myke\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "65fba230-75f2-4097-a347-6c821ff90c52",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "addSongDurationString",
+            "url": "/song",
+            "method": "POST",
+            "sortNum": 270312.5,
+            "created": "2023-11-19T09:54:31.006Z",
+            "modified": "2023-11-19T09:54:58.323Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paraiso\",\n  \"duration\": \"3\",\n  \"category\": \"Rock\",\n  \"nameArtist\": \"myke\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "9ba6bcea-7021-40ba-97af-395c86c83022",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "editSongDurationString",
+            "url": "/song/1",
+            "method": "PUT",
+            "sortNum": 270468.8,
+            "created": "2023-11-19T10:00:26.292Z",
+            "modified": "2023-11-19T10:00:42.755Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paraiso\",\n  \"duration\": \"3\",\n  \"category\": \"Rock\",\n  \"nameArtist\": \"myke\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "ca00d710-3d72-48c7-8e5e-34cc51a6f7e1",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "addSongNameInteger",
+            "url": "/song",
+            "method": "POST",
+            "sortNum": 270625,
+            "created": "2023-11-19T09:54:05.029Z",
+            "modified": "2023-11-19T09:54:24.961Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":1,\n  \"duration\": 3,\n  \"category\": \"Rock\",\n  \"nameArtist\": \"myke\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "f01c05d1-94c0-48c0-8b9f-76b6a2d574d8",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "editSongNameInteger",
+            "url": "/song/1",
+            "method": "PUT",
+            "sortNum": 270937.5,
+            "created": "2023-11-19T10:00:48.554Z",
+            "modified": "2023-11-19T10:00:55.057Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":1,\n  \"duration\": 3,\n  \"category\": \"Rock\",\n  \"nameArtist\": \"myke\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "f68000dd-3307-4082-b83e-dbeab84dee75",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "addSongNoNameArtist",
+            "url": "/song",
+            "method": "POST",
+            "sortNum": 271250,
+            "created": "2023-11-19T09:53:05.041Z",
+            "modified": "2023-11-19T09:53:42.376Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paraiso\",\n  \"duration\": 3,\n  \"category\": \"Rock\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "17b92484-fd1e-4d9e-9d66-e0dfdedc6d77",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "editSongNoNameArtist",
+            "url": "/song/1",
+            "method": "PUT",
+            "sortNum": 271875,
+            "created": "2023-11-19T10:01:17.802Z",
+            "modified": "2023-11-19T10:01:38.013Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paraiso\",\n  \"duration\": 3,\n  \"category\": \"Rock\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "04517464-4914-470b-9280-92df473855cd",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "addSongNoCategory",
+            "url": "/song",
+            "method": "POST",
+            "sortNum": 272500,
+            "created": "2023-11-19T09:52:33.773Z",
+            "modified": "2023-11-19T09:53:01.926Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paraiso\",\n  \"duration\": 3,\n  \"nameArtist\": \"myke\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "25ae289a-a39e-4f34-96b5-d03256c9ebef",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "editSongNoCategory",
+            "url": "/song/1",
+            "method": "PUT",
+            "sortNum": 273750,
+            "created": "2023-11-19T10:01:42.469Z",
+            "modified": "2023-11-19T10:01:58.086Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paraiso\",\n  \"duration\": 3,\n  \"nameArtist\": \"myke\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "a85d0f2d-c017-42a8-b53d-bccc4adb3671",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "addSongNoDuration",
+            "url": "/song",
+            "method": "POST",
+            "sortNum": 275000,
+            "created": "2023-11-19T09:51:05.047Z",
+            "modified": "2023-11-19T09:52:29.634Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paraiso\",\n  \"category\": \"Rock\",\n  \"nameArtist\": \"myke\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "f2cbc652-6884-4e9c-89ea-bbc9bb0356b5",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "editSongNoDuration",
+            "url": "/song/1",
+            "method": "PUT",
+            "sortNum": 277500,
+            "created": "2023-11-19T10:02:09.770Z",
+            "modified": "2023-11-19T10:02:17.266Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paraiso\",\n  \"category\": \"Rock\",\n  \"nameArtist\": \"myke\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "43eee082-5684-4b75-a738-8da73061098c",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "addSongNoName",
+            "url": "/song",
+            "method": "POST",
+            "sortNum": 280000,
+            "created": "2023-11-19T09:49:33.249Z",
+            "modified": "2023-11-19T09:50:53.298Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"duration\": 3,\n  \"category\": \"Rock\",\n  \"nameArtist\": \"myke\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "d308adc2-f041-4ada-98c7-3d9dca9498b0",
+            "colId": "81bfb2d1-79d7-418d-95ce-0f1d9c78592e",
+            "containerId": "ba0ffa5b-26ae-4d92-976d-2cac0e7357c7",
+            "name": "editSongNoName",
+            "url": "/song/1",
+            "method": "PUT",
+            "sortNum": 290000,
+            "created": "2023-11-19T10:02:33.354Z",
+            "modified": "2023-11-19T10:02:52.550Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"duration\": 3,\n  \"category\": \"Rock\",\n  \"nameArtist\": \"myke\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "201"
+                }
+            ]
+        }
+    ]
+}
