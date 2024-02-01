@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {getUser,addUser,deleteUser,putUser,getUserById} = require('../controllers/user');
+const {getUser,addUser,deleteUser,putUser,getUserById,loginUser} = require('../controllers/user');
 const {check} = require("express-validator");
 const {validationFields} = require("../middlewares/validate-fields");
 const { existsName,existsLogin,existsEmail, checkPassword } = require("../helpers/db-validators");
@@ -49,5 +49,7 @@ router
     check('email').custom(existsLogin),
     validationFields
 ],putUser);  
+
+
 
 module.exports=router;

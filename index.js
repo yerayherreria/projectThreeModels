@@ -6,7 +6,7 @@ const discRoutes = require("./routes/disc");
 const artistRoutes = require("./routes/artist");
 const songRoutes = require("./routes/song");
 const userRoutes = require("./routes/user");
-
+const loginRouter = require("./routes/login")
 const mongoose = require("mongoose");
 mongoose.set("strictQuery",false);
 
@@ -24,6 +24,7 @@ app.use('/disc', discRoutes);
 app.use('/artist', artistRoutes);
 app.use('/song', songRoutes);
 app.use('/user',userRoutes)
+app.use('/auth',loginRouter)
 
 app.listen(3000, () => {
     console.log("El servidor está escuchando en el puerto 3000");

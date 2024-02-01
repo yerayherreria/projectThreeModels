@@ -43,7 +43,7 @@ const getUserById = async (req,res)=>{
     
       if(id){
         try{
-          const user = await User.findByIdAndUpdate(id,{active:true});
+          const user = await User.findByIdAndUpdate(id,{active:false});
           res.status(204).json(user);
       
         } catch (error){
@@ -73,4 +73,28 @@ const getUserById = async (req,res)=>{
       }
       
   };
-module.exports = {addUser,deleteUser,getUser,getUserById,putUser}
+
+  const loginUser = async (req, res) => {
+    let {email,password} = req.body;
+    if(email && password){
+        try{
+            const user = await User.findOne({email});
+            let passValid = null;
+            if(user){
+              console.log(user)
+              passValid = bcryptjs.compareSync(password, user.password);
+            }
+            if(passValid){
+                res.status(200).json(user);
+            }else{
+                res.status(400).json({message:"Data invalid."});
+            }
+        }catch(err){
+            console.log(err);
+            res.status(500).json({message:err});
+        }
+    }else{
+        res.status(400).json({message:"Data err"});
+    }
+};
+module.exports = {addUser,deleteUser,getUser,getUserById,putUser,loginUser}
