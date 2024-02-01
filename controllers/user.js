@@ -43,7 +43,7 @@ const getUserById = async (req,res)=>{
     
       if(id){
         try{
-          const user = await User.findByIdAndDelete(id);
+          const user = await User.findByIdAndUpdate(id,{active:true});
           res.status(204).json(user);
       
         } catch (error){
