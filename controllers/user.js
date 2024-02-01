@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const bcryptjs = require('bcryptjs');
 
 const getUserById = async (req,res)=>{
     let id = req.params.id;
@@ -24,8 +25,10 @@ const getUserById = async (req,res)=>{
   };
   
   const addUser = async (req, res) => {
-      const user = req.body;
-      const newUser = new User(user);
+      const {name,login,email,password,role,active} = req.body;
+      const salt = bcryptjs.genSaltSync();
+      encryptedPassword = bcryptjs.hashSync( password, salt);
+      const newUser = new User({name,login,email,password:encryptedPassword,role,active});
       try{
         await newUser.save();
         res.status(201).json(newUser);
@@ -54,10 +57,12 @@ const getUserById = async (req,res)=>{
   
   const putUser = async (req,res)=>{
       let id = req.params.id;
-      let body = req.body;
+      let {name,login,email,password,role,active} = req.body;
+      const salt = bcryptjs.genSaltSync();
+      encryptedPassword = bcryptjs.hashSync( password, salt);
       if(id){
         try{
-          const user = await User.findByIdAndUpdate(id,body);
+          const user = await User.findByIdAndUpdate(id,{name,login,email,password:encryptedPassword,role,active});
           res.status(200).json(user);
       
         } catch (error){

@@ -25,4 +25,11 @@ const existsLogin = async (name,{req}) => {
     }
 }
 
-module.exports={existsName,existsEmail,existsLogin};
+const checkPassword = async(password,{req}) => {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if(!regex.test(password)){
+        throw new Error(`Password ${password} not valdid`);
+    } 
+}
+
+module.exports={existsName,existsEmail,existsLogin,checkPassword};

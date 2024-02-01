@@ -23,6 +23,10 @@ const UserSchema = new Schema({
     password: {
         type:String,
         required:true
+    },
+    active: {
+        type:Boolean,
+        required:true
     }
 })
 
