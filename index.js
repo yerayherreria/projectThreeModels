@@ -9,7 +9,8 @@ const userRoutes = require("./routes/user");
 const loginRouter = require("./routes/login")
 const mongoose = require("mongoose");
 mongoose.set("strictQuery",false);
-
+require('dotenv').config()
+//SECRET=d82bc92f35b5d5ee6d751dec2b73da2681546bcf626acd75b32a101710d431a4
 async function main() {
     await mongoose.connect("mongodb+srv://yerayherreria:yerayherreria@cluster0.hce5dpg.mongodb.net/");
     console.log("Conectado")

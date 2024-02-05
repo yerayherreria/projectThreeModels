@@ -3,7 +3,9 @@ const router = express.Router();
 const {getUser,addUser,deleteUser,putUser,getUserById,loginUser} = require('../controllers/user');
 const {check} = require("express-validator");
 const {validationFields} = require("../middlewares/validate-fields");
-const { existsName,existsLogin,existsEmail, checkPassword } = require("../helpers/db-validators");
+const {validateJWT} = require("../middlewares/validate-jwt");
+const { existsLogin,existsEmail, checkPassword, existsUserById } = require("../helpers/db-validators");
+const { validateROL } = require("../middlewares/validate-rol");
 
 router
 .route("/")
@@ -12,14 +14,10 @@ router
     check('name','Name is required').not().isEmpty(),
     check('login','Login is required').not().isEmpty(),
     check('email','Email is required').not().isEmpty(),
-    check('role','Role is required').not().isEmpty(),
     check('password','Password is required').not().isEmpty(),
-    check('active','Active is required').not().isEmpty(),
     check('name','Name is string').isString(),
     check('login','Login is string').isString(),
     check('email','Email is string').isString(),
-    check('role','Role is string').isString(),
-    check('active','Active is boolean').isBoolean(),
     check('password','Password is string').isString(),
     check('password').custom(checkPassword),
     check('login').custom(existsEmail),
@@ -30,19 +28,21 @@ router
 router
 .route("/:id")
 .get(getUserById)
-.delete(deleteUser)
+.delete([
+    validateROL,
+    validateJWT,
+    check('id','Id not valid').isMongoId(),
+    check('id').custom(existsUserById),
+    validationFields
+],deleteUser)
 .put([
     check('name','Name is required').not().isEmpty(),
     check('login','Login is required').not().isEmpty(),
     check('email','Email is required').not().isEmpty(),
-    check('role','Role is required').not().isEmpty(),
     check('password','Password is required').not().isEmpty(),
-    check('active','Active is required').not().isEmpty(),
     check('name','Name is string').isString(),
     check('login','Login is string').isString(),
     check('email','Email is string').isString(),
-    check('role','Role is string').isString(),
-    check('active','Active is boolean').isBoolean(),
     check('password','Password is string').isString(),
     check('password').custom(checkPassword),
     check('login').custom(existsEmail),

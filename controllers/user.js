@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const bcryptjs = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const getUserById = async (req,res)=>{
     let id = req.params.id;
@@ -25,10 +26,11 @@ const getUserById = async (req,res)=>{
   };
   
   const addUser = async (req, res) => {
-      const {name,login,email,password,role,active} = req.body;
+      const {name,login,email,password} = req.body;
       const salt = bcryptjs.genSaltSync();
       encryptedPassword = bcryptjs.hashSync( password, salt);
-      const newUser = new User({name,login,email,password:encryptedPassword,role,active});
+      const newUser = new User({name:name,login:login,email:email,password:encryptedPassword,role:"USER_ROLE",active:true});
+      
       try{
         await newUser.save();
         res.status(201).json(newUser);
@@ -83,18 +85,25 @@ const getUserById = async (req,res)=>{
             if(user){
               console.log(user)
               passValid = bcryptjs.compareSync(password, user.password);
-            }
-            if(passValid){
-                res.status(200).json(user);
-            }else{
-                res.status(400).json({message:"Data invalid."});
+             
+              const payload = {uid: user.id};
+              const token = jwt.sign(payload,process.env.SECRET
+                ,{expiresIn:'4h'});
+              if(passValid){
+                  res.status(200).json({
+                    user,
+                    token
+                  });
+              }else{
+                  res.status(400).json({message:"Data invalid."});
+              }
             }
         }catch(err){
             console.log(err);
             res.status(500).json({message:err});
         }
     }else{
-        res.status(400).json({message:"Data err"});
+        res.status(400).json({message:"User not valid"});
     }
 };
 module.exports = {addUser,deleteUser,getUser,getUserById,putUser,loginUser}
