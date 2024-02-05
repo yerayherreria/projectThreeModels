@@ -87,8 +87,7 @@ const getUserById = async (req,res)=>{
               passValid = bcryptjs.compareSync(password, user.password);
              
               const payload = {uid: user.id};
-              const token = jwt.sign(payload,process.env.SECRET
-                ,{expiresIn:'4h'});
+              const token = jwt.sign(payload,process.env.SECRET,{expiresIn:'4h'});
               if(passValid){
                   res.status(200).json({
                     user,

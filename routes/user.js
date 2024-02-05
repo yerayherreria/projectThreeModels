@@ -29,8 +29,8 @@ router
 .route("/:id")
 .get(getUserById)
 .delete([
-    validateROL,
     validateJWT,
+    validateROL,
     check('id','Id not valid').isMongoId(),
     check('id').custom(existsUserById),
     validationFields

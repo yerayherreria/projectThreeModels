@@ -3,7 +3,6 @@ const router = express.Router();
 const {loginUser} = require('../controllers/user');
 const {check} = require("express-validator");
 const {validationFields} = require("../middlewares/validate-fields");
-const { existsLogin, checkPassword } = require("../helpers/db-validators");
 
 
 router
