@@ -1,17 +1,17 @@
 const { request, response } = require("express");
 
-const validateROL = async (req = request, res = response, next) => {
+const hasRole = async (roles, req = request, res = response, next) => {
 
     const rol = req.user.role;
     console.log(rol)
-    if (rol!='ADMIN_ROLE') {
+    if (!roles.includes(rol)) {
         return res.status(401).json({
-            msg: 'User not admin'
+            msg: 'Usuario no es administrador'
         });
     }
     next();   
 }
 
 module.exports = {
-    validateROL
+    hasRole
 }
