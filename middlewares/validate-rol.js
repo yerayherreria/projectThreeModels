@@ -1,15 +1,14 @@
 const { request, response } = require("express");
 
-const hasRole = async (roles, req = request, res = response, next) => {
+const hasRole = (...roles) => async (req = request, res = response, next) => {
 
-    const rol = req.user.role;
-    console.log(rol)
-    if (!roles.includes(rol)) {
+    if(!roles.includes(req.user.role)){
         return res.status(401).json({
-            msg: 'Usuario no es administrador'
+            msg: `Token no válido - no puedes realizar esta acción si no eres ${roles.toString()}`
         });
     }
-    next();   
+
+    next();
 }
 
 module.exports = {

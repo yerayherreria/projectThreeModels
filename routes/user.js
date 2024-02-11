@@ -30,7 +30,7 @@ router
 .get(getUserById)
 .delete([
     validateJWT,
-    hasRole(['ADMIN_ROLE']),
+    hasRole('ADMIN_ROLE'),
     check('id','Id not valid').isMongoId(),
     check('id').custom(existsUserById),
     validationFields

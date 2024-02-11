@@ -3,6 +3,7 @@ const router = express.Router();
 const {loginUser} = require('../controllers/user');
 const {check} = require("express-validator");
 const {validationFields} = require("../middlewares/validate-fields");
+const { validateJWT } = require("../middlewares/validate-jwt");
 
 
 router
@@ -18,6 +19,7 @@ router
 router
 .route("/renew")
 .post([
+    validateJWT,
     check('email','Email is required').not().isEmpty(),
     check('password','Password is required').not().isEmpty(),
     check('email','Email is string').isString(),
