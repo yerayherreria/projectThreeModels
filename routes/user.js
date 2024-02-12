@@ -9,7 +9,9 @@ const { hasRole } = require("../middlewares/validate-rol");
 
 router
 .route("/")
-.get(getUser)
+.get([
+    validateJWT
+],getUser)
 .post([
     check('name','Name is required').not().isEmpty(),
     check('login','Login is required').not().isEmpty(),

@@ -4,6 +4,7 @@ const {loginUser} = require('../controllers/user');
 const {check} = require("express-validator");
 const {validationFields} = require("../middlewares/validate-fields");
 const { validateJWT } = require("../middlewares/validate-jwt");
+const { renew } = require("../controllers/renew");
 
 
 router
@@ -18,13 +19,8 @@ router
 
 router
 .route("/renew")
-.post([
-    validateJWT,
-    check('email','Email is required').not().isEmpty(),
-    check('password','Password is required').not().isEmpty(),
-    check('email','Email is string').isString(),
-    check('password','Password is string').isString(),
-    validationFields
-],loginUser);  
+.get([
+    validateJWT
+],renew );  
 
 module.exports=router;
